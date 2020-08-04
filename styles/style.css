@@ -15,7 +15,27 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   min-height: 70vh;
-  width: 70%;
+  width: 60%;
   max-width: 80%;
   background: #c0c0c0;
+}
+
+#nav {
+  border-right: 1px solid #111c2c;
+}
+
+.task {
+  background: white;
+  height: ;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background: #64883F;
+  margin: 0;
+  padding: 0;
 }
