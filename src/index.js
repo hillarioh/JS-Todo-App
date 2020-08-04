@@ -15,7 +15,12 @@ const refresh = () => {
   let contents = '';
   if (list) {
     list.forEach((item) => {
-      contents += `<h2 id=${item.projectName}>${item.projectName}</h2>`;
+      contents += `
+      <h2 id=${item.projectName}>${item.projectName}
+      <button class='fas fa-trash-alt' data-name=${item.projectName
+    .split(' ')
+    .join('+')}></button>
+      </h2>`;
     });
   }
 
@@ -23,6 +28,16 @@ const refresh = () => {
 };
 
 refresh();
+
+projectsList.addEventListener('click', (e) => {
+  if (e.target.nodeName !== 'BUTTON') {
+    return;
+  }
+  let pname = e.target.dataset.name;
+  pname = pname.split('+').join(' ');
+  projects.deleteProject(pname);
+  refresh();
+});
 
 showProject.addEventListener('click', () => {
   projectModal.classList.add('show-modal');
