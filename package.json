@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"webpack",
-    "watch":"webpack --watch"
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,15 @@
   },
   "homepage": "https://github.com/hillarioh/JS-Todo-App#readme",
   "devDependencies": {
+    "css-loader": "^4.1.0",
+    "eslint": "^7.5.0",
+    "eslint-plugin-import": "^2.22.0",
+    "file-loader": "^6.0.0",
+    "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "eslint-config-airbnb-base": "^14.2.0"
   }
 }
