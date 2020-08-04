@@ -19,7 +19,7 @@ class Projects {
     if (names.includes(name)) {
       alert('Project already exists!');
     } else {
-      list.push({ projectName: name });
+      list.push({ projectName: name, tasks: [] });
       this.saveProject(list);
     }
   }
@@ -36,6 +36,17 @@ class Projects {
     const removed = list.filter(
       (item) => item.projectName !== single.projectName,
     );
+    return this.saveProject(removed);
+  }
+
+  updateProject(project) {
+    let single = this.singleProject(project);
+    single = project;
+    const list = this.getProjects();
+    const removed = list.filter(
+      (item) => item.projectName !== single.projectName,
+    );
+    removed.push(single);
     return this.saveProject(removed);
   }
 }

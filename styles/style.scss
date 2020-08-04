@@ -3,6 +3,18 @@
   padding: 0;
 }
 
+@mixin modal {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.123);
+  backdrop-filter: blur(5px);
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
 body {
   background: #466368;
   background: linear-gradient(to right bottom, #64883f, #293f61);
@@ -18,6 +30,11 @@ body {
   width: 60%;
   max-width: 80%;
   background: #c0c0c0;
+  .projects {
+    height: 70vh;
+    overflow-y: auto;
+    padding: 5px 10px;
+  }
 }
 
 #nav {
@@ -37,4 +54,29 @@ ul {
   background: #64883f;
   margin: 0;
   padding: 0;
+}
+
+.project {
+  @include modal();
+  form {
+    background-color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+  }
+}
+
+.show-modal {
+  display: flex !important;
+}
+
+#close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background-color: transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100%;
+  color: white;
+  border: none;
 }
