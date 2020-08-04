@@ -2,3 +2,20 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  background: #466368;
+  background: linear-gradient(to right bottom, #64883F, #293F61);
+  height: 100vh;
+}
+
+.todoList {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 70vh;
+  width: 70%;
+  max-width: 80%;
+  background: #c0c0c0;
+}
