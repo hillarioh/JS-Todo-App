@@ -2,20 +2,24 @@
 Web application to create and organize a To-Do list using HTML/CSS and JavaScript
 ## Screenshot
 
-1. Home 
-![screenshot1](./images/intro.png)
+1. Main
+![screenshot1](./images/main.png)
 
-2. Game
-![screenshot2](./images/game.png)
+2. Project modal
+![screenshot2](./images/pname.png)
+
+3. Task modal
+![screenshot2](./images/task.png)
 
 
 ## Features
-Each user uses creates a 'project' object containing project name and array of task objects.
-Each Item Object contains basic properties like title, description, dueDate, priority and status.
+- Each user uses creates a 'project' object containing project name and array of task objects.
+- Each Item Object contains basic properties like title, description, dueDate, priority and status.
 - ToDo Items can be added to projects, including priority.
-All data objects are created using Classes organized inside the ./src folder.
-All dom elements are kept in separate file.
-Projects and Item information is saved in the user's local storage.
+- We use modal to allow users to create project and tasks
+- All data objects are created using Classes organized inside the ./src folder.
+- All dom elements are kept in separate file.
+- Projects and Item information is saved in the user's local storage.
 
 
 ## Built With

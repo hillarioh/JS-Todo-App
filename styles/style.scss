@@ -71,6 +71,9 @@ body {
       overflow-y: auto;
       padding: 5px 0;
 
+
+
+
       p {
         font-weight: 600;
         margin: 0;
@@ -78,6 +81,10 @@ body {
         border-bottom: 1px solid #acdf79;
         cursor: pointer;
         border-radius: 5px;
+
+        button {
+          outline: none;
+        }
 
         &:hover {
           background-color: #e0e0e0;
