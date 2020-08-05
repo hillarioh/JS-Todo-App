@@ -33,12 +33,18 @@ body {
   background: #c0c0c0;
 
   #nav {
-    border-right: 1px solid #111c2c;
+    border-right: 2px solid #64883f;
+    background: #f3eded;
 
     .todoApp {
       padding: 8px 0;
       margin: 8px 0;
-      background: #f3eded;
+
+      h3 {
+        font-weight: 900;
+        color: #64883f;
+      }
+
     }
 
     .projectTitle {
@@ -50,10 +56,12 @@ body {
         font-size: 20px;
         font-weight: 700;
         margin: 0;
+        color: #64883f;
       }
 
       i {
-        font-size: 1rem;
+        font-size: 1.5rem;
+        color: #80cc35;
         cursor: pointer;
       }
     }
@@ -67,9 +75,10 @@ body {
         font-weight: 600;
         margin: 0;
         padding-bottom: 8px;
-        border-bottom: 1px solid #888;
+        border-bottom: 1px solid #acdf79;
         cursor: pointer;
         border-radius: 5px;
+
         &:hover {
           background-color: #e0e0e0;
         }
@@ -90,6 +99,24 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    #task-title {
+      color: #64883f;
+      font-weight: 700;
+    }
+
+    i {
+      font-size: 1.5rem;
+      color: #80cc35;
+      cursor: pointer;
+    }
+  }
+
+  .tasks-list {
+    .task-item {
+      padding: 0 10px;
+      border-bottom: 1px solid #b9ec86;
+    }
   }
 }
 
