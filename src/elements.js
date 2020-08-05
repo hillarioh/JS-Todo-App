@@ -14,9 +14,26 @@ const taskDueDate = document.getElementById('duedate');
 const taskPriority = document.getElementById('priority');
 const titleText = document.getElementById('task-title');
 const tasksList = document.getElementById('tasks-list');
+const taskDetails = document.getElementById('task-details');
+const taskEdit = document.getElementById('task-edit');
 
 export {
-  showProject, projectModal, taskModal, closeProject, closeTask, projectForm,
-  name, projectsList, newTask, taskForm, taskTitle, taskDescription, taskDueDate,
-  taskPriority, titleText, tasksList,
+  showProject,
+  projectModal,
+  taskModal,
+  closeProject,
+  closeTask,
+  projectForm,
+  name,
+  projectsList,
+  newTask,
+  taskForm,
+  taskTitle,
+  taskDescription,
+  taskDueDate,
+  taskPriority,
+  titleText,
+  tasksList,
+  taskDetails,
+  taskEdit,
 };

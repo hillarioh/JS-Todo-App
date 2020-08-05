@@ -5,6 +5,8 @@ import * as Element from './elements';
 
 const projects = new Projects();
 
+let gproject = '';
+
 const nameEncode = (name) => name.split(' ').join('+');
 
 const decode = (name) => name.split('+').join(' ');
@@ -66,7 +68,7 @@ const listTasks = (tasks) => {
   let list = '';
   tasks.forEach((item) => {
     list += `<div class="task-item d-flex justify-content-between">
-    <p class="m-0">${item.title}</p>
+    <p class="m-0" data-task=${nameEncode(item.title)} >${item.title}</p>
     <p class="m-0">${item.duedate}</p>
     <p class="m-0">${item.priority}</p>
     </div>
@@ -84,6 +86,7 @@ Element.projectsList.addEventListener('click', (e) => {
 
   Element.titleText.innerText = pname;
   const project = projects.singleProject(pname);
+  gproject = project;
   listTasks(project.tasks);
   Element.newTask.dataset.project = nameEncode(pname);
 });
@@ -107,4 +110,17 @@ Element.taskForm.addEventListener('submit', (e) => {
   projects.updateProject(createdTask);
   listTasks(createdTask.tasks);
   Element.taskModal.classList.remove('show-modal');
+  Element.taskForm.reset();
+});
+
+Element.tasksList.addEventListener('click', (e) => {
+  if (e.target.nodeName !== 'P') return;
+  const value = decode(e.target.dataset.task);
+  const findTask = gproject.tasks.filter((item) => item.title === value)[0];
+  Element.taskDetails.innerHTML = `
+  <h3>${findTask.title} <span><small>
+  ${findTask.priority} priority</small></span></h3>
+  <p>${findTask.description}</p>
+  <small>${findTask.duedate}</small>
+  `;
 });
