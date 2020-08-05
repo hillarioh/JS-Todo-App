@@ -1,5 +1,10 @@
 # JS-Todo-App
 Web application to create and organize a To-Do list using HTML/CSS and JavaScript
+
+## Live Demo
+[Live link](https://raw.githack.com/hillarioh/JS-Todo-App/todo/dist/index.html)
+
+
 ## Screenshot
 
 1. Main
@@ -29,9 +34,6 @@ Web application to create and organize a To-Do list using HTML/CSS and JavaScrip
 - Javascript
 - Bootstrap
 - Webpack
-
-## Live Demo
-[Live link](https://pedantic-pike-f0dd3d.netlify.app/)
 
 
 ## Authors
