@@ -16,11 +16,11 @@ const refresh = () => {
   if (list) {
     list.forEach((item) => {
       contents += `
-      <h2 id=${item.projectName}>${item.projectName}
+      <p id=${item.projectName}>${item.projectName}
       <button class='fas fa-trash-alt' data-name=${item.projectName
     .split(' ')
     .join('+')}></button>
-      </h2>`;
+      </p>`;
     });
   }
 
