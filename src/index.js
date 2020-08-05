@@ -68,7 +68,7 @@ const listTasks = (tasks) => {
   let list = '';
   tasks.forEach((item) => {
     list += `<div class="task-item d-flex justify-content-between">
-    <p class="m-0" data-task=${nameEncode(item.title)} >${item.title}</p>
+    <p id="first-task" class="m-0" data-task=${nameEncode(item.title)} >${item.title}</p>
     <p class="m-0">${item.duedate}</p>
     <p class="m-0">${item.priority}</p>
     </div>
