@@ -99,16 +99,27 @@ Element.taskForm.addEventListener('submit', (e) => {
   const priority = Element.taskPriority.value;
   let { project } = Element.newTask.dataset;
   project = projects.singleProject(decode(project));
-
   const task = new Tasks(project);
-  const createdTask = task.createTask({
+  const tList = project.tasks.map((item) => item.title);
+  const taskDetails = {
     title,
     description,
     duedate,
     priority,
-  });
-  projects.updateProject(createdTask);
-  listTasks(createdTask.tasks);
+  };
+  if (tList.includes(title)) {
+    const updated = task.updateTask(taskDetails);
+    project.tasks = updated;
+    projects.updateProject(project);
+    const newData = updated.filter((item) => item.title === title)[0];
+    Element.icon.dataset.task = nameEncode(newData.title);
+    listTasks(project.tasks);
+  } else {
+    const createdTask = task.createTask(taskDetails);
+    projects.updateProject(createdTask);
+    listTasks(createdTask.tasks);
+  }
+
   Element.taskModal.classList.remove('show-modal');
   Element.taskForm.reset();
 });
@@ -123,4 +134,36 @@ Element.tasksList.addEventListener('click', (e) => {
   <p>${findTask.description}</p>
   <small>${findTask.duedate}</small>
   `;
+
+  Element.icon.dataset.task = nameEncode(findTask.title);
+  Element.deleteIcon.dataset.task = nameEncode(findTask.title);
+  Element.taskDetails.appendChild(Element.icon);
+  Element.taskDetails.appendChild(Element.deleteIcon);
+});
+
+Element.icon.addEventListener('click', (e) => {
+  Element.taskModal.classList.add('show-modal');
+  const taskName = decode(e.target.dataset.task);
+  const taskDetails = gproject.tasks.filter(
+    (item) => item.title === taskName,
+  )[0];
+  const {
+    title, description, duedate, priority,
+  } = taskDetails;
+  Element.taskTitle.value = title;
+  Element.taskTitle.disabled = true;
+  Element.taskDescription.value = description;
+  Element.taskDueDate.value = duedate;
+  Element.taskPriority.value = priority;
+});
+
+Element.deleteIcon.addEventListener('click', (e) => {
+  const data = decode(e.target.dataset.task);
+  const tList = gproject.tasks.filter((item) => item.title === data)[0];
+  const task = new Tasks(gproject);
+  const deleted = task.deleteTask(tList);
+  gproject.tasks = deleted;
+  projects.updateProject(gproject);
+  listTasks(gproject.tasks);
+  Element.taskDetails.innerHTML = '';
 });

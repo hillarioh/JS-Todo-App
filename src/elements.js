@@ -15,7 +15,10 @@ const taskPriority = document.getElementById('priority');
 const titleText = document.getElementById('task-title');
 const tasksList = document.getElementById('tasks-list');
 const taskDetails = document.getElementById('task-details');
-const taskEdit = document.getElementById('task-edit');
+const icon = document.createElement('i');
+const deleteIcon = document.createElement('i');
+icon.className = 'fas fa-pen';
+deleteIcon.className = 'fas fa-trash-alt';
 
 export {
   showProject,
@@ -35,5 +38,6 @@ export {
   titleText,
   tasksList,
   taskDetails,
-  taskEdit,
+  icon,
+  deleteIcon,
 };
