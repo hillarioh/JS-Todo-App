@@ -8,10 +8,10 @@ class Tasks {
   // eslint-disable-next-line consistent-return
   createTask(task) {
     const {
-      title, description, dueDate, priority,
+      title, description, duedate, priority,
     } = task;
     const titles = this.project.tasks.map((item) => item.title);
-    if (!title || !description || !dueDate || !priority) {
+    if (!title || !description || !duedate || !priority) {
       alert('Please fill all fields');
     } else if (titles.includes(title)) {
       alert('Similar task exists!');

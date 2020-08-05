@@ -40,7 +40,7 @@ class Projects {
   }
 
   updateProject(project) {
-    let single = this.singleProject(project);
+    let single = this.singleProject(project.name);
     single = project;
     const list = this.getProjects();
     const removed = list.filter(

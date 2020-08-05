@@ -19,7 +19,7 @@ body {
   background: #466368;
   background: linear-gradient(to right bottom, #64883f, #293f61);
   height: 100vh;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .todoList {
@@ -34,7 +34,6 @@ body {
 
   #nav {
     border-right: 1px solid #111c2c;
-    
 
     .todoApp {
       padding: 8px 0;
@@ -47,13 +46,13 @@ body {
       justify-content: space-between;
       align-items: center;
 
-      h4{
+      h4 {
         font-size: 20px;
         font-weight: 700;
         margin: 0;
       }
 
-      i{
+      i {
         font-size: 1rem;
         cursor: pointer;
       }
@@ -69,14 +68,15 @@ body {
         margin: 0;
         padding-bottom: 8px;
         border-bottom: 1px solid #888;
+        cursor: pointer;
+        border-radius: 5px;
+        &:hover {
+          background-color: #e0e0e0;
+        }
       }
     }
   }
-
-
 }
-
-
 
 .task {
   background: white;
@@ -87,6 +87,9 @@ body {
   .task-title {
     border-bottom: 5px double #89e232;
     padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 
@@ -115,7 +118,8 @@ ul {
   display: flex !important;
 }
 
-#close {
+#close-task,
+#close-project {
   position: absolute;
   right: 1rem;
   top: 1rem;
