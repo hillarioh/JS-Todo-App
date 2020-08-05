@@ -1,23 +1,7 @@
 import '../styles/style.scss';
 import Projects from './projects';
 import Tasks from './tasks';
-
-const showProject = document.getElementById('show-project');
-const projectModal = document.getElementById('project-modal');
-const taskModal = document.getElementById('task-modal');
-const closeProject = document.getElementById('close-project');
-const closeTask = document.getElementById('close-task');
-const projectForm = document.getElementById('project-form');
-const name = document.getElementById('name');
-const projectsList = document.getElementById('projects-list');
-const newTask = document.getElementById('new-task');
-const taskForm = document.getElementById('task-form');
-const taskTitle = document.getElementById('title');
-const taskDescription = document.getElementById('description');
-const taskDueDate = document.getElementById('duedate');
-const taskPriority = document.getElementById('priority');
-const titleText = document.getElementById('task-title');
-const tasksList = document.getElementById('tasks-list');
+import * as Element from './elements';
 
 const projects = new Projects();
 
@@ -38,12 +22,12 @@ const refresh = () => {
     });
   }
 
-  projectsList.innerHTML = contents;
+  Element.projectsList.innerHTML = contents;
 };
 
 refresh();
 
-projectsList.addEventListener('click', (e) => {
+Element.projectsList.addEventListener('click', (e) => {
   if (e.target.nodeName !== 'BUTTON') {
     return;
   }
@@ -53,29 +37,29 @@ projectsList.addEventListener('click', (e) => {
   refresh();
 });
 
-showProject.addEventListener('click', () => {
-  projectModal.classList.add('show-modal');
+Element.showProject.addEventListener('click', () => {
+  Element.projectModal.classList.add('show-modal');
 });
 
-newTask.addEventListener('click', () => {
-  taskModal.classList.add('show-modal');
+Element.newTask.addEventListener('click', () => {
+  Element.taskModal.classList.add('show-modal');
 });
 
-closeProject.addEventListener('click', () => {
-  projectModal.classList.remove('show-modal');
+Element.closeProject.addEventListener('click', () => {
+  Element.projectModal.classList.remove('show-modal');
 });
 
-closeTask.addEventListener('click', () => {
-  taskModal.classList.remove('show-modal');
+Element.closeTask.addEventListener('click', () => {
+  Element.taskModal.classList.remove('show-modal');
 });
 
-projectForm.addEventListener('submit', (e) => {
+Element.projectForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const { value } = name;
+  const { value } = Element.name;
   projects.addProject(value);
   refresh();
-  projectModal.classList.remove('show-modal');
-  projectForm.reset();
+  Element.projectModal.classList.remove('show-modal');
+  Element.projectForm.reset();
 });
 
 const listTasks = (tasks) => {
@@ -88,29 +72,29 @@ const listTasks = (tasks) => {
     </div>
     `;
   });
-  tasksList.innerHTML = list;
+  Element.tasksList.innerHTML = list;
 };
 
-projectsList.addEventListener('click', (e) => {
+Element.projectsList.addEventListener('click', (e) => {
   if (e.target.nodeName !== 'P') {
     return;
   }
   let pname = e.target.dataset.project;
   pname = decode(pname);
 
-  titleText.innerText = pname;
+  Element.titleText.innerText = pname;
   const project = projects.singleProject(pname);
   listTasks(project.tasks);
-  newTask.dataset.project = nameEncode(pname);
+  Element.newTask.dataset.project = nameEncode(pname);
 });
 
-taskForm.addEventListener('submit', (e) => {
+Element.taskForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const title = taskTitle.value;
-  const description = taskDescription.value;
-  const duedate = taskDueDate.value;
-  const priority = taskPriority.value;
-  let { project } = newTask.dataset;
+  const title = Element.taskTitle.value;
+  const description = Element.taskDescription.value;
+  const duedate = Element.taskDueDate.value;
+  const priority = Element.taskPriority.value;
+  let { project } = Element.newTask.dataset;
   project = projects.singleProject(decode(project));
 
   const task = new Tasks(project);
@@ -122,5 +106,5 @@ taskForm.addEventListener('submit', (e) => {
   });
   projects.updateProject(createdTask);
   listTasks(createdTask.tasks);
-  taskModal.classList.remove('show-modal');
+  Element.taskModal.classList.remove('show-modal');
 });
