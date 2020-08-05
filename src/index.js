@@ -80,7 +80,7 @@ projectForm.addEventListener('submit', (e) => {
 
 const listTasks = (tasks) => {
   let list = '';
-  tasks.map((item) => {
+  tasks.forEach((item) => {
     list += `
     <p>${item.title}</p>
     `;
