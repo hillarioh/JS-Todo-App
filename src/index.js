@@ -81,8 +81,11 @@ projectForm.addEventListener('submit', (e) => {
 const listTasks = (tasks) => {
   let list = '';
   tasks.forEach((item) => {
-    list += `
-    <p>${item.title}</p>
+    list += `<div class="task-item d-flex justify-content-between">
+    <p class="m-0">${item.title}</p>
+    <p class="m-0">${item.duedate}</p>
+    <p class="m-0">${item.priority}</p>
+    </div>
     `;
   });
   tasksList.innerHTML = list;
