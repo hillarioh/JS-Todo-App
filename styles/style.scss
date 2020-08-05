@@ -44,7 +44,6 @@ body {
         font-weight: 900;
         color: #64883f;
       }
-
     }
 
     .projectTitle {
@@ -70,9 +69,6 @@ body {
       height: 70vh;
       overflow-y: auto;
       padding: 5px 0;
-
-
-
 
       p {
         font-weight: 600;
@@ -112,7 +108,7 @@ body {
       font-weight: 700;
     }
 
-    i {
+    #new-task {
       font-size: 1.5rem;
       color: #80cc35;
       cursor: pointer;
