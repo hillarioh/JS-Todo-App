@@ -30,6 +30,7 @@ body {
   width: 60%;
   max-width: 80%;
   background: #c0c0c0;
+
   .projects {
     height: 70vh;
     overflow-y: auto;
@@ -43,6 +44,13 @@ body {
 
 .task {
   background: white;
+  min-height: 50vh;
+  margin: 1.5rem;
+  border-radius: 10px;
+
+  .task-title {
+    border-bottom: 5px double #89e232;
+  }
 }
 
 ul {
@@ -58,6 +66,7 @@ ul {
 
 .project {
   @include modal();
+
   form {
     background-color: white;
     padding: 1rem 2rem;
